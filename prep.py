@@ -8,13 +8,13 @@ import shutil
 import sys
 
 
-#WIDTH=36
-#HEIGHT=18
-#COUNTRY='us'
+WIDTH=36
+HEIGHT=18
+COUNTRY='us'
 
-WIDTH=52
-HEIGHT=13
-COUNTRY='eu'
+#WIDTH=52
+#HEIGHT=13
+#COUNTRY='eu'
 
 #constants
 OPENCV_DIR= '/home/mhill/projects/alpr/libraries/opencv/bin'
@@ -129,14 +129,16 @@ elif command == "pos":
 
         if filename.endswith(".txt"):
             continue
+	try:
+		img = Image.open(OUTPUT_POSITIVE_DIR + filename)
 
-        img = Image.open(OUTPUT_POSITIVE_DIR + filename)
+		# get the image's width and height in pixels
+		width, height = img.size
+		f.write(filename + " 1 0 0 " + str(width) + " " + str(height) + '\n')
 
-        # get the image's width and height in pixels
-        width, height = img.size
-        f.write(filename + " 1 0 0 " + str(width) + " " + str(height) + '\n')
-
-        total_pics = total_pics + 1
+		total_pics = total_pics + 1
+	except IOError:
+		print "Exception reading image file: " + filename
 
     f.close()
 
@@ -169,7 +171,7 @@ elif command == "train":
 	num_pos_samples = -1
     num_neg_samples = file_len(NEGATIVE_INFO_FILE)
 
-    execStr = '%s/opencv_traincascade %s %s %s %s -numPos %d -numNeg %d -featureType LBP -numStages 20' % (OPENCV_DIR, data_arg, vector_arg, bg_arg, width_height_arg, num_pos_samples, num_neg_samples )
+    execStr = '%s/opencv_traincascade %s %s %s %s -numPos %d -numNeg %d -maxFalseAlarmRate 0.45 -featureType LBP -numStages 13' % (OPENCV_DIR, data_arg, vector_arg, bg_arg, width_height_arg, num_pos_samples, num_neg_samples )
 
     print "Execute the following command to start training:"
     print execStr
