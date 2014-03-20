@@ -3,7 +3,7 @@ train-detector
 
 This repository contains scripts that will help train a license plate detector for a particular region.  Your trained region detector can then be used in OpenALPR.
 
-The license plate region detector uses the Local Binary Pattern (LBP) algorithm.  In order to train the detecctor, you will need many positive and negative images.  This repository already contains a collection of negative images.  You will need to add your own positive images.
+The license plate region detector uses the Local Binary Pattern (LBP) algorithm.  In order to train the detector, you will need many positive and negative images.  This repository already contains a collection of negative images.  You will need to add your own positive images.
 
 To get started, you will first need many cropped plate images containing positive license plate matches.  Please see the "eu" positive image folder in this repository to understand the types of plate images required.  The imageclipper program is helpful for creating these cropped images.
 
