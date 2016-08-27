@@ -87,7 +87,7 @@ if command == "neg":
 
         shutil.copy2(INPUT_NEGATIVE_DIR + neg_file, OUTPUT_NEGATIVE_DIR + neg_file )
 
-        f.write(neg_file + "\n")
+        f.write(OUTPUT_NEGATIVE_DIR + neg_file + "\n")
 
 
     f.close()
