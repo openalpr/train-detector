@@ -16,6 +16,10 @@ COUNTRY='us'
 #HEIGHT=13
 #COUNTRY='eu'
 
+#WIDTH=40
+#HEIGHT=13
+#COUNTRY='br'
+
 #constants
 OPENCV_DIR= '/home/mhill/projects/alpr/libraries/opencv/bin'
 SAMPLE_CREATOR = OPENCV_DIR + '/opencv_createsamples'
