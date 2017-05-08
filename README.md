@@ -5,7 +5,9 @@ This repository contains scripts that will help train a license plate detector f
 
 The license plate region detector uses the Local Binary Pattern (LBP) algorithm.  In order to train the detector, you will need many positive and negative images.  This repository already contains a collection of negative images.  You will need to add your own positive images.
 
-To get started, you will first need many cropped plate images containing positive license plate matches.  Please see the "eu" positive image folder in this repository to understand the types of plate images required.  The imageclipper program is helpful for creating these cropped images.
+To get started, you will first need many cropped plate images containing positive license plate matches.  Please see the "eu" positive image folder in this repository to understand the types of plate images required. 
+
+The [Plate Tagger Utility](https://github.com/openalpr/plate_tagger)  is helpful to tag the plate locations.  After tagging the plates you can run the "crop_plates.py" function to extract the crops from the input images at your target aspect ratio.
 
 After you've collected many (hundreds to thousands) of positive plate images, the next step is to train the detector.  First you must configure the training script to use the correct dimensions.
 
